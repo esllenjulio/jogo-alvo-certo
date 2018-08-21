@@ -1,0 +1,91 @@
+<nav class="navbar navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">
+    <img src="./assets/target.png" width="30" height="30" class="d-inline-block align-top" alt=""> Alvo Certo
+  </a>
+
+
+  <label *ngIf='mostrarParticipante'> Olá, {{ this.participante.nome}} !</label>
+
+  <button type="button" class="btn btn-primary" style="float:right" *ngIf='mostrarParticipante'>
+    Vitorias:
+    <span class="badge badge-light">{{ this.participante.pontos}}</span>
+  </button>
+
+
+</nav>
+
+<div class="jumbotron jumbotron-fluid">
+
+  <div class="container" *ngIf="!iniciarJogo">
+    <div class="row">
+      <div class="col-sm">
+        <div class="form-group">
+          <label>Escolha seu nome de jogador</label>
+          <input type="text" class="form-control" placeholder="Seu nome" #nomeJogador>
+        </div>
+        <button type="button" class="btn btn-success" (click)="iniciarPartida(nomeJogador.value)">Iniciar</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf='!resetarJogo'>
+    <div class="container" *ngIf="iniciarJogo">
+      <div class="row">
+        <div class="col-xs mx-auto">
+          <label for="">O numero sorteado está entre:</label>
+         
+          <div class="alert alert-light" role="alert">
+            <button type="button" class="btn btn-success btn-circle btn-xl">{{ this.valorMinimo }}</button>
+            &nbsp; &nbsp; &nbsp;
+            <button type="button" class="btn btn-danger btn-circle btn-xl">{{ this.valorMaximo }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" *ngIf="iniciarJogo">
+      <div class="row">
+        <div class="col-md mx-auto">
+          <div class="input-group mb-3">
+            <input type="number" class="form-control" min="0" max="100" #numero [(ngModel)]="this.valor" placeholder="Valor" aria-label="Recipient's username"
+              aria-describedby="button-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="verificarNumero(numero.value)">Verificar</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container" *ngIf="iniciarJogo">
+      <div class="row">
+        <div class="col-sm">
+          <label for="" *ngIf='mostrarParticipante'> Jogadores Online:</label>
+          <ul *ngFor="let participante of listaParticipantes">
+            <li>
+              <button type="button" class="btn btn-outline-primary btn-circle-usr btn-xl">
+                <i class="fa fa-child" style="font-size:30px"></i>
+              </button>
+              {{ participante.nome}}: {{participante.pontos}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container" *ngIf='resetarJogo'>
+    <div class="row">
+      <div class="col-sm">
+        <img src="./assets/target.png" width="200" height="200" class="d-inline-block align-top" alt="">
+        <p class="h2">Parabéns, o ganhador foi,</p>
+        <p class="h1">{{this.ganhadorRodada.nome }}</p>
+        <button type="button" class="btn btn-warning" (click)="ocultarSplash()">Nova Rodada</button>
+      </div>
+    </div>
+  </div>
+
+</div>

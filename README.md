@@ -4,7 +4,7 @@
 
 Jogo alvo certo Angular 2 - Nodejs - Socket.io
 
-Jogo multi usuarios em tempo real,feito para fins de estudo, abordando alguns conceitos em angular2, nodejs utilizando a biblioteca Socket.IO
+Jogo multiplos usuarios em tempo real,feito para fins de estudo, abordando alguns conceitos em angular2, nodejs utilizando a biblioteca Socket.IO
 
 Para Executar a aplicação basta clonar o repositorio.
 

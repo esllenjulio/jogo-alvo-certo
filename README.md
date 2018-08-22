@@ -6,6 +6,8 @@ Jogo alvo certo Angular 2 - Nodejs - Socket.io
 
 Jogo multiplos usuarios em tempo real,feito para fins de estudo, abordando alguns conceitos em angular2, nodejs utilizando a biblioteca Socket.IO
 
+DEMO: http://alvocertonodejs-com-br.umbler.net/
+
 Para Executar a aplicação basta clonar o repositorio.
 
 1 - Instalar dependências: Abra o cmd do linux ou windows e navegue até a pasta 'jogo-alvo-certo-master' e execute o comando 'npm install'.
